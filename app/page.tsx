@@ -207,7 +207,7 @@ export default function Home() {
           <div>
             <Kicker>MASTER DEALER CCTV PURWAKARTA &amp; SEKITARNYA</Kicker>
             <h1 className="mb-5 max-w-[640px] font-display text-[clamp(30px,6vw,54px)] font-extrabold leading-[1.1] tracking-tight sm:mb-[22px]">
-              Master Dealer Pertama di Purwakarta
+              Master Dealer CCTV Purwakarta
             </h1>
             <p className="mb-7 max-w-[520px] text-[15.5px] leading-relaxed text-muted sm:mb-[34px] sm:text-[17px]">
               Dari survei, pemilihan perangkat, instalasi hingga maintenance —
