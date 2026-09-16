@@ -205,7 +205,7 @@ export default function Home() {
       <section className="border-b border-border pb-12 pt-[76px] sm:pb-16 sm:pt-[88px]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-8 px-5 sm:px-7 sm:gap-10 lg:grid-cols-[1.05fr_0.85fr] lg:gap-14">
           <div>
-            <Kicker>MASTER DEALER CCTV · PURWAKARTA &amp; SEKITARNYA</Kicker>
+            <Kicker>MASTER DEALER CCTV PURWAKARTA &amp; SEKITARNYA</Kicker>
             <h1 className="mb-5 max-w-[640px] font-display text-[clamp(30px,6vw,54px)] font-extrabold leading-[1.1] tracking-tight sm:mb-[22px]">
               Master Dealer Pertama di Purwakarta
             </h1>
