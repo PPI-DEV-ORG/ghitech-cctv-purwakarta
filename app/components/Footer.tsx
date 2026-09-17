@@ -83,10 +83,21 @@ export default function Footer() {
                 <WhatsAppIcon size={15} />
                 WhatsApp: 0877-2268-6440
               </a>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 026765f (fix: remove dahua)
+>>>>>>> 0bd039c (fix robot.txt)
               <a
                 href="mailto:distri.cctv.purwakarta@gmail.com"
                 className="text-muted no-underline hover:text-amber transition-colors"
               >
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0bd039c (fix robot.txt)
                 Email: distri.cctv.purwakarta@gmail.com
               </a>
               <a
@@ -95,12 +106,43 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-muted flex items-start gap-1.5 leading-relaxed text-[12.5px] no-underline hover:text-amber transition-colors"
               >
+<<<<<<< HEAD
+=======
+=======
+              <div className="text-muted">
+                Email: distri.cctv.purwakarta@gmail.com
+              </div>
+              <div className="text-muted flex items-start gap-1.5 leading-relaxed text-[12.5px]">
+>>>>>>> 11ffeff (Add new images and update existing assets)
+=======
+                Email: distri.cctv.purwakarta@gmail.com
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Jl.+Wanayasa-Bojong-Sawit,+RT.001/RW.001,+Kp+Nenggeng,+Neglasari,+Kec.+Darangdan,+Kab.+Purwakarta,+Jawa+Barat+41163"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted flex items-start gap-1.5 leading-relaxed text-[12.5px] no-underline hover:text-amber transition-colors"
+              >
+>>>>>>> 026765f (fix: remove dahua)
+>>>>>>> 0bd039c (fix robot.txt)
                 <MapPinIcon className="w-4 h-4 text-amber shrink-0 mt-0.5" />
                 <span>
                   Jl. Wanayasa-Bojong-Sawit, RT.001/RW.001, Kp Nenggeng, Neglasari,
                   Kec. Darangdan, Kab. Purwakarta, Jawa Barat 41163
                 </span>
+<<<<<<< HEAD
               </a>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+              </a>
+=======
+              </div>
+>>>>>>> 11ffeff (Add new images and update existing assets)
+=======
+              </a>
+>>>>>>> 026765f (fix: remove dahua)
+>>>>>>> 0bd039c (fix robot.txt)
             </div>
           </div>
         </div>

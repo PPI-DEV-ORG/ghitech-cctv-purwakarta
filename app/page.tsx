@@ -86,6 +86,16 @@ const SOLUTIONS = [
 
 const BRANDS = [
   { name: "Hikvision", logo: "/imgs/brands/hikvision.png" },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  { name: "Dahua Technology", logo: "/imgs/brands/dahua.svg" },
+>>>>>>> 11ffeff (Add new images and update existing assets)
+=======
+>>>>>>> 5046334 (fix: remove dahua)
+>>>>>>> 0bd039c (fix robot.txt)
   { name: "Uniview (UNV)", logo: "/imgs/brands/uniview.png" },
   { name: "HiView", logo: "/imgs/brands/hiview.webp" },
   { name: "Bosch Security", logo: "/imgs/brands/bosch.png" },
