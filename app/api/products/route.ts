@@ -3,7 +3,7 @@ import { getProducts, saveProducts } from "@/app/lib/storage";
 import { ProductItem } from "@/app/components/ProductCard";
 
 function verifyPassword(req: NextRequest): boolean {
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD || "ghitechadmin2026";
+  const adminPass = process.env.BLOG_ADMIN_PASSWORD;
   const authHeader = req.headers.get("x-admin-password");
   return authHeader === adminPass;
 }
