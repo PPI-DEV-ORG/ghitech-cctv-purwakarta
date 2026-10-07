@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 function verifyPassword(req: NextRequest): boolean {
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD || "ghitechadmin2026";
+  const adminPass = process.env.BLOG_ADMIN_PASSWORD;
   const authHeader = req.headers.get("x-admin-password");
   return authHeader === adminPass;
 }

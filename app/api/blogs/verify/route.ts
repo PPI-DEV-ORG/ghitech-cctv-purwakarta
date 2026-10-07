@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
         password = body.password;
       } catch {}
     }
-    const adminPass = process.env.BLOG_ADMIN_PASSWORD || "ghitechadmin2026";
+    const adminPass = process.env.BLOG_ADMIN_PASSWORD;
 
     if (password && password === adminPass) {
       return NextResponse.json({ success: true, message: "Autentikasi berhasil" });
