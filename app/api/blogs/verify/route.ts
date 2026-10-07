@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const password = req.headers.get("x-admin-password");
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD || "ghitechadmin2026";
+  const adminPass = process.env.BLOG_ADMIN_PASSWORD
   if (password && password === adminPass) {
     return NextResponse.json({ success: true, message: "Valid" });
   }
