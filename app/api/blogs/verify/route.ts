@@ -29,19 +29,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const password = req.headers.get("x-admin-password");
-<<<<<<< HEAD
   const adminPass = process.env.BLOG_ADMIN_PASSWORD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD
-=======
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD || "ghitechadmin2026";
->>>>>>> 11ffeff (Add new images and update existing assets)
-=======
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD
->>>>>>> 3273ac8 (fix)
->>>>>>> 0bd039c (fix robot.txt)
   if (password && password === adminPass) {
     return NextResponse.json({ success: true, message: "Valid" });
   }
