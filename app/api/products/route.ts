@@ -3,9 +3,9 @@ import { getProducts, saveProducts } from "@/app/lib/storage";
 import { ProductItem } from "@/app/components/ProductCard";
 
 function verifyPassword(req: NextRequest): boolean {
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD;
-  const authHeader = req.headers.get("x-admin-password");
-  return authHeader === adminPass;
+  const adminPass = process.env.BLOG_ADMIN_PASSWORD?.trim();
+  const authHeader = req.headers.get("x-admin-password")?.trim();
+  return !!adminPass && authHeader === adminPass;
 }
 
 export async function GET() {

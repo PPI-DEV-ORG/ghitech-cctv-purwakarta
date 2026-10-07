@@ -3,9 +3,9 @@ import fs from "fs";
 import path from "path";
 
 function verifyPassword(req: NextRequest): boolean {
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD;
-  const authHeader = req.headers.get("x-admin-password");
-  return authHeader === adminPass;
+  const adminPass = process.env.BLOG_ADMIN_PASSWORD?.trim();
+  const authHeader = req.headers.get("x-admin-password")?.trim();
+  return !!adminPass && authHeader === adminPass;
 }
 
 const ALLOWED_EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp"];

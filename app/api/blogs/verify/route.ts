@@ -9,9 +9,9 @@ export async function POST(req: NextRequest) {
         password = body.password;
       } catch {}
     }
-    const adminPass = process.env.BLOG_ADMIN_PASSWORD;
+    const adminPass = process.env.BLOG_ADMIN_PASSWORD?.trim();
 
-    if (password && password === adminPass) {
+    if (password && adminPass && password.trim() === adminPass) {
       return NextResponse.json({ success: true, message: "Autentikasi berhasil" });
     }
 
@@ -29,8 +29,8 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const password = req.headers.get("x-admin-password");
-  const adminPass = process.env.BLOG_ADMIN_PASSWORD
-  if (password && password === adminPass) {
+  const adminPass = process.env.BLOG_ADMIN_PASSWORD?.trim();
+  if (password && adminPass && password.trim() === adminPass) {
     return NextResponse.json({ success: true, message: "Valid" });
   }
   return NextResponse.json(

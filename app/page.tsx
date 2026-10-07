@@ -303,12 +303,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 items-center">
+          <div className="flex flex-wrap justify-center gap-4 items-center">
             {BRANDS.map((b, i) => (
               <div
                 key={i}
-                title={b.name}
-                className="group relative flex h-24 items-center justify-center rounded-xl border border-border bg-white p-4 transition-all duration-200 hover:border-amber hover:shadow-md cursor-pointer"
+                className="group relative flex h-24 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.75rem)] md:w-[calc(20%-0.8rem)] items-center justify-center rounded-xl border border-border bg-white p-4 transition-all duration-200 hover:border-amber hover:shadow-md cursor-pointer"
               >
                 {/* Floating Tooltip Name on Hover */}
                 <div className="pointer-events-none absolute -top-9 z-20 rounded-md bg-slate-900 px-2.5 py-1 text-[11px] font-bold text-white shadow-md opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 whitespace-nowrap">
