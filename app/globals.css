@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #ffffff;
+  --color-panel: #ffffff;
+  --color-panel2: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-amber: #0b4f9c;
+  --color-brand-blue: #0b4f9c;
+  --color-brand-blue-hover: #083870;
+  --color-brand-red: #d32f2f;
+  --color-brand-red-hover: #b71c1c;
+  --color-teal: #0b4f9c;
+  --color-rec: #d32f2f;
+
+  --font-display: var(--font-archivo), sans-serif;
+  --font-sans: var(--font-plex-sans), sans-serif;
+  --font-mono: var(--font-plex-mono), monospace;
+
+  --animate-scan: scan 5.5s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: -25%;
+  }
+  100% {
+    top: 105%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scan {
+    animation: none !important;
+    display: none !important;
+  }
+  .animate-marquee,
+  .animate-marquee-slow {
+    animation: none !important;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+
