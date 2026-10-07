@@ -86,7 +86,6 @@ const SOLUTIONS = [
 
 const BRANDS = [
   { name: "Hikvision", logo: "/imgs/brands/hikvision.png" },
-  { name: "Dahua Technology", logo: "/imgs/brands/dahua.svg" },
   { name: "Uniview (UNV)", logo: "/imgs/brands/uniview.png" },
   { name: "HiView", logo: "/imgs/brands/hiview.webp" },
   { name: "Bosch Security", logo: "/imgs/brands/bosch.png" },
