@@ -98,7 +98,7 @@ export default function TentangPage() {
                   </div>
                   <div>
                     <strong className="block text-sm text-ink">Produk Distributor Resmi</strong>
-                    <span className="text-xs text-muted">Bekerja sama langsung dengan brand utama (Hikvision, Dahua, Uniview, Samtek).</span>
+                    <span className="text-xs text-muted">Bekerja sama langsung dengan brand utama (Hikvision, Uniview, DLL).</span>
                   </div>
                 </div>
 

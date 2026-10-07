@@ -83,16 +83,24 @@ export default function Footer() {
                 <WhatsAppIcon size={15} />
                 WhatsApp: 0877-2268-6440
               </a>
-              <div className="text-muted">
+              <a
+                href="mailto:distri.cctv.purwakarta@gmail.com"
+                className="text-muted no-underline hover:text-amber transition-colors"
+              >
                 Email: distri.cctv.purwakarta@gmail.com
-              </div>
-              <div className="text-muted flex items-start gap-1.5 leading-relaxed text-[12.5px]">
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Jl.+Wanayasa-Bojong-Sawit,+RT.001/RW.001,+Kp+Nenggeng,+Neglasari,+Kec.+Darangdan,+Kab.+Purwakarta,+Jawa+Barat+41163"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted flex items-start gap-1.5 leading-relaxed text-[12.5px] no-underline hover:text-amber transition-colors"
+              >
                 <MapPinIcon className="w-4 h-4 text-amber shrink-0 mt-0.5" />
                 <span>
                   Jl. Wanayasa-Bojong-Sawit, RT.001/RW.001, Kp Nenggeng, Neglasari,
                   Kec. Darangdan, Kab. Purwakarta, Jawa Barat 41163
                 </span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
