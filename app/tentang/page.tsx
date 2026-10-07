@@ -98,19 +98,7 @@ export default function TentangPage() {
                   </div>
                   <div>
                     <strong className="block text-sm text-ink">Produk Distributor Resmi</strong>
-<<<<<<< HEAD
                     <span className="text-xs text-muted">Bekerja sama langsung dengan brand utama (Hikvision, Uniview, DLL).</span>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <span className="text-xs text-muted">Bekerja sama langsung dengan brand utama (Hikvision, Uniview, DLL).</span>
-=======
-                    <span className="text-xs text-muted">Bekerja sama langsung dengan brand utama (Hikvision, Dahua, Uniview, Samtek).</span>
->>>>>>> 11ffeff (Add new images and update existing assets)
-=======
-                    <span className="text-xs text-muted">Bekerja sama langsung dengan brand utama (Hikvision, Uniview, DLL).</span>
->>>>>>> 026765f (fix: remove dahua)
->>>>>>> 0bd039c (fix robot.txt)
                   </div>
                 </div>
 
