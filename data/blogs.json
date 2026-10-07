@@ -1,0 +1,38 @@
+[
+  {
+    "id": "blog-1",
+    "slug": "panduan-memilih-cctv-terbaik-untuk-kantor-dan-gudang",
+    "title": "Panduan Memilih Sistem CCTV Terbaik untuk Kantor dan Area Gudang",
+    "excerpt": "Ketahui faktor penting dalam memilih kamera CCTV indoor, outdoor, serta kapasitas penyimpanan NVR untuk perlindungan aset maksimal.",
+    "content": "Keamanan aset perusahaan merupakan prioritas utama bagi setiap pemilik bisnis dan pengelola fasilitas operasional. Memilih sistem CCTV yang tepat untuk kantor dan pergudangan memerlukan pemahaman menyeluruh terhadap spesifikasi kamera, jangkauan sudut pandang, kemampuan low-light/night vision, serta kapasitas penyimpanan rekaman.\n\n### 1. Perbedaan CCTV Indoor dan Outdoor\nKamera luar ruangan (outdoor) membutuhkan sertifikasi proteksi IP66 atau IP67 untuk menahan cuaca ekstrem, hujan deras, dan debu tebal. Di area gudang dengan sirkulasi udara terbuka, housing kamera anti-vandal (IK10) juga sangat direkomendasikan guna menghindari benturan fisik dari operasional forklift atau alat berat.\n\n### 2. Resolusi dan Frame Rate\nUntuk kebutuhan identifikasi wajah dan plat nomor kendaraan (ANPR), minimal resolusi 4MP hingga 8MP (4K) sangat dianjurkan. Pada area lorong kantor biasa, resolusi 2MP (1080p) sudah memadai dengan bitrate yang efisien.\n\n### 3. Integrasi dengan VMS Pintar\nPenggunaan Video Management System (seperti SAMTEK VMS) mempermudah pemantauan ratusan kamera dari satu command center dengan fitur analitik cerdas berbasis AI.",
+    "category": "Keamanan & Tips",
+    "author": "Tim Teknis CV. Ghina Multiprima",
+    "date": "2026-09-15",
+    "image": "/imgs/places/warehouse.jpg",
+    "readTime": "5 min baca"
+  },
+  {
+    "id": "blog-2",
+    "slug": "transformasi-pengawasan-cctv-dengan-samtek-vms-ai",
+    "title": "Transformasi Pengawasan CCTV Konvensional Menggunakan SAMTEK VMS Berbasis AI",
+    "excerpt": "Pelajari bagaimana SAMTEK VMS mengoptimalkan kamera eksisting Anda menjadi sistem keamanan cerdas dengan deteksi objek dan perimeter otomatis.",
+    "content": "Banyak industri kini menghadapi tantangan berupa kelelahan operator manusia dalam memantau puluhan monitor CCTV 24 jam nonstop. Hal ini menyebabkan insiden kritis seringkali baru terdeteksi setelah terjadi kerugian.\n\n### Keunggulan SAMTEK VMS\nSAMTEK VMS hadir sebagai solusi terintegrasi yang mampu menghubungkan berbagai merk kamera terkemuka (Hikvision, Dahua, Uniview, Bosch, Axis) dalam satu platform intuitif.\n\n- **AI Video Analytics:** Deteksi intrusi, pengenalan plat kendaraan, penghitungan orang (people counting), dan peringatan dini secara real-time.\n- **Pencarian Cepat (Smart Search):** Mencari rekaman kejadian tertentu dalam hitungan detik berdasarkan atribut objek atau warna pakaian.\n- **Efisiensi Bandwidth & Storage:** Kompresi cerdas yang menghemat kapasitas hard disk server hingga 50% tanpa menurunkan kualitas gambar.",
+    "category": "Teknologi & VMS",
+    "author": "Engineering Samtek",
+    "date": "2026-09-10",
+    "image": "/imgs/places/bank.jpg",
+    "readTime": "6 min baca"
+  },
+  {
+    "id": "blog-3",
+    "slug": "manfaat-perawatan-rutin-preventive-maintenance-cctv",
+    "title": "Pentingnya Preventive Maintenance CCTV Secara Berkala bagi Korporasi",
+    "excerpt": "Mengapa pembersihan lensa, pengecekan kabel FO, dan update firmware kamera krusial demi menjamin keandalan sistem keamanan.",
+    "content": "Banyak perusahaan yang baru menyadari CCTV mereka tidak berfungsi ketika insiden kehilangan terjadi dan rekaman video ternyata korup atau lensa tertutup debu tebal.\n\nCV. Ghina Multiprima menyediakan layanan perawatan berkala (Preventive Maintenance Service) yang mencakup:\n1. Pembersihan fisik housing kamera dan koreksi sudut pandang (focus adjustment).\n2. Kalibrasi NVR/DVR, tes integritas hard disk, dan manajemen retensi rekaman.\n3. Uji kelayakan koneksi jaringan PoE switch dan kabel Fiber Optic.\n4. Update patch keamanan firmware untuk mencegah celah keamanan siber pada perangkat IoT.",
+    "category": "Layanan & Maintenance",
+    "author": "Field Operation Team",
+    "date": "2026-09-02",
+    "image": "/imgs/places/pabrik.jpg",
+    "readTime": "4 min baca"
+  }
+]
