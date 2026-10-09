@@ -8,7 +8,7 @@
     "channels": "4 Channel",
     "price": "Rp 3.850.000",
     "priceNumber": 3850000,
-    "image": "/imgs/products/home office - 4 channel.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/home-office---4-channel.webp",
     "description": "Paket ideal untuk ruko 2-3 lantai, studio kantor, cafe, dan tempat usaha kecil. Mengamankan ruang kerja, kasir, dan area depan.",
     "includes": [
       "4 Unit Kamera Kombinasi Indoor Dome & Outdoor Bullet Weatherproof",
@@ -30,7 +30,7 @@
     "channels": "8 Channel",
     "price": "Rp 6.450.000",
     "priceNumber": 6450000,
-    "image": "/imgs/products/home office - 8 channels.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/home-office---8-channels.webp",
     "description": "Cakupan pengawasan lebih luas untuk ruko bertingkat atau kantor menengah dengan area parkir, ruang staf, dan gudang persediaan.",
     "includes": [
       "8 Unit Kamera CCTV Resolusi Tinggi (Indoor Dome & Outdoor IP67)",
@@ -52,7 +52,7 @@
     "channels": "4 Channel",
     "price": "Rp 4.650.000",
     "priceNumber": 4650000,
-    "image": "/imgs/products/office security - 4 Channels.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/office-security---4-channels.webp",
     "description": "Sistem proteksi perimeter keamanan kantor dengan kamera IP metal casing tahan vandalisme, rekaman ultra jernih, dan audio recording.",
     "includes": [
       "4 Unit Kamera IP Metal Housing Outdoor/Indoor Vandalproof",
@@ -74,7 +74,7 @@
     "channels": "8 Channel",
     "price": "Rp 7.950.000",
     "priceNumber": 7950000,
-    "image": "/imgs/products/Office Security - 8 Channels.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/office-security---8-channels.webp",
     "description": "Solusi terpadu gedung perkantoran, perbankan, dan area komersial bertingkat dengan integrasi ruang kontrol keamanan (command center).",
     "includes": [
       "8 Unit Kamera CCTV IP Resolusi 4MP/4K Ultra Clarity",
@@ -95,7 +95,7 @@
     "channels": "1 Kamera Wireless",
     "price": "Rp 650.000",
     "priceNumber": 650000,
-    "image": "/imgs/products/1 Baby Cam.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/1-baby-cam.webp",
     "description": "Kamera pintar praktis tanpa instalasi kabel rumit, audio 2 arah, auto tracking gerakan, dan pantau via smartphone kapan saja.",
     "includes": [
       "1 Unit Kamera Smart Wireless Pan-Tilt 360° Full HD",
@@ -116,7 +116,7 @@
     "channels": "4 Kamera Wireless",
     "price": "Rp 2.350.000",
     "priceNumber": 2350000,
-    "image": "/imgs/products/4 Baby Cam.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/4-baby-cam.webp",
     "description": "Paket pengawasan lengkap untuk seluruh area hunian (kamar anak, ruang tamu, dapur, dan teras) dengan tampilan 4 split-screen real-time.",
     "includes": [
       "4 Unit Kamera Smart Wireless Pan-Tilt 360° 1080p/2K",
@@ -136,7 +136,7 @@
     "channels": "6 Kamera Wireless",
     "price": "Rp 3.450.000",
     "priceNumber": 3450000,
-    "image": "/imgs/products/6 Baby Cam.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/6-baby-cam.webp",
     "description": "Cakupan luas tanpa kabel untuk rumah 2 lantai, villa, atau daycare. Pantau setiap lantai dan ruangan aktif secara sinkron.",
     "includes": [
       "6 Unit Kamera Smart Wireless Pan-Tilt 360° Smart AI",
@@ -156,7 +156,7 @@
     "channels": "8 Kamera Wireless",
     "price": "Rp 4.500.000",
     "priceNumber": 4500000,
-    "image": "/imgs/products/8 Baby Cam.webp",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/8-baby-cam.webp",
     "description": "Pengawasan menyeluruh untuk rumah bertingkat luas, tempat penitipan anak (daycare), sekolah TK, atau klinik dengan 8 kamera pintar wireless.",
     "includes": [
       "8 Unit Kamera Smart Wireless Pan-Tilt Full HD Night Color",
@@ -176,7 +176,7 @@
     "channels": "Hingga 16 Stream AI",
     "price": "Hubungi Sales",
     "priceNumber": 0,
-    "image": "/imgs/products/smartbox.png",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/smartbox.png",
     "description": "Perangkat komputasi edge berkinerja tinggi yang disematkan SAMTEK VMS untuk mengubah kamera CCTV kantor konvensional menjadi AI Camera pintar.",
     "includes": [
       "Hardware Edge AI Embedded Processor Fanless Rugged",

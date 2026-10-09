@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import { getBlogs, saveBlogs } from "../../lib/storage";
+import { getBlogs, saveBlogs, deleteStoredImage } from "../../lib/storage";
 import { BlogPost } from "../../components/BlogCard";
+import { supabase, isSupabaseConfigured } from "../../lib/supabase";
 
 function verifyPassword(req: NextRequest): boolean {
   const adminPass = process.env.BLOG_ADMIN_PASSWORD?.trim();
@@ -11,7 +10,7 @@ function verifyPassword(req: NextRequest): boolean {
 }
 
 export async function GET() {
-  const blogs = getBlogs();
+  const blogs = await getBlogs();
   return NextResponse.json(blogs);
 }
 
@@ -25,17 +24,20 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const blogs = getBlogs();
+    const blogs = await getBlogs();
+
+    const id = `blog-${Date.now()}`;
+    const slug =
+      body.slug ||
+      body.title
+        ?.toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-") ||
+      `post-${Date.now()}`;
 
     const newPost: BlogPost = {
-      id: `blog-${Date.now()}`,
-      slug:
-        body.slug ||
-        body.title
-          ?.toLowerCase()
-          .replace(/[^a-z0-9\s-]/g, "")
-          .replace(/\s+/g, "-") ||
-        `post-${Date.now()}`,
+      id,
+      slug,
       title: body.title || "Judul Artikel",
       excerpt: body.excerpt || "",
       content: body.content || "",
@@ -46,8 +48,29 @@ export async function POST(req: NextRequest) {
       readTime: body.readTime || "5 min baca",
     };
 
+    // 1. Simpan ke Supabase jika aktif
+    if (isSupabaseConfigured && supabase) {
+      const { error: dbErr } = await supabase.from("blogs").insert({
+        id: newPost.id,
+        slug: newPost.slug,
+        title: newPost.title,
+        excerpt: newPost.excerpt,
+        content: newPost.content,
+        category: newPost.category,
+        author: newPost.author,
+        date: newPost.date,
+        image: newPost.image,
+        read_time: newPost.readTime,
+      });
+
+      if (dbErr) {
+        console.warn("Supabase insert blog error:", dbErr.message);
+      }
+    }
+
+    // 2. Simpan ke local cache
     blogs.unshift(newPost);
-    saveBlogs(blogs);
+    await saveBlogs(blogs);
 
     return NextResponse.json(
       { message: "Artikel berhasil ditambahkan", post: newPost },
@@ -72,7 +95,7 @@ export async function PUT(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const blogs = getBlogs();
+    const blogs = await getBlogs();
 
     const index = blogs.findIndex((b) => b.id === body.id);
     if (index === -1) {
@@ -85,24 +108,9 @@ export async function PUT(req: NextRequest) {
     const oldPost = blogs[index];
     const newImage = body.image;
 
-    // Hapus file gambar lama jika foto diganti dan foto lama tersimpan di public
+    // Hapus file gambar lama jika foto diganti
     if (oldPost.image && newImage && oldPost.image !== newImage) {
-      try {
-        const rawPath = oldPost.image.trim().split("?")[0].split("#")[0];
-        const isBlogImage =
-          rawPath.startsWith("/imgs/blog/") ||
-          rawPath.startsWith("imgs/blog/");
-
-        if (isBlogImage) {
-          const cleanRelativePath = rawPath.replace(/^\/+/, "");
-          const fullLocalPath = path.join(process.cwd(), "public", cleanRelativePath);
-          if (fs.existsSync(fullLocalPath)) {
-            fs.unlinkSync(fullLocalPath);
-          }
-        }
-      } catch (fileErr) {
-        console.error("Gagal menghapus file gambar lama artikel:", fileErr);
-      }
+      await deleteStoredImage(oldPost.image);
     }
 
     blogs[index] = {
@@ -110,7 +118,29 @@ export async function PUT(req: NextRequest) {
       ...body,
     };
 
-    saveBlogs(blogs);
+    // 1. Update ke Supabase jika aktif
+    if (isSupabaseConfigured && supabase) {
+      const { error: dbErr } = await supabase
+        .from("blogs")
+        .update({
+          slug: blogs[index].slug,
+          title: blogs[index].title,
+          excerpt: blogs[index].excerpt,
+          content: blogs[index].content,
+          category: blogs[index].category,
+          author: blogs[index].author,
+          image: blogs[index].image,
+          read_time: blogs[index].readTime,
+        })
+        .eq("id", blogs[index].id);
+
+      if (dbErr) {
+        console.warn("Supabase update blog error:", dbErr.message);
+      }
+    }
+
+    // 2. Simpan ke local cache
+    await saveBlogs(blogs);
 
     return NextResponse.json({
       message: "Artikel berhasil diperbarui",
@@ -144,7 +174,7 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
-    let blogs = getBlogs();
+    let blogs = await getBlogs();
     const postToDelete = blogs.find((b) => b.id === id);
 
     if (!postToDelete) {
@@ -154,30 +184,26 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
-    // Hapus file media/gambar jika tersimpan di public folder
+    // Hapus file media/gambar jika tersimpan
     if (postToDelete.image) {
-      try {
-        const rawPath = postToDelete.image.trim().split("?")[0].split("#")[0];
+      await deleteStoredImage(postToDelete.image);
+    }
 
-        const isBlogImage =
-          rawPath.startsWith("/imgs/blog/") ||
-          rawPath.startsWith("imgs/blog/");
+    // 1. Hapus dari Supabase jika aktif
+    if (isSupabaseConfigured && supabase) {
+      const { error: dbErr } = await supabase
+        .from("blogs")
+        .delete()
+        .eq("id", id);
 
-        if (isBlogImage) {
-          const cleanRelativePath = rawPath.replace(/^\/+/, "");
-          const fullLocalPath = path.join(process.cwd(), "public", cleanRelativePath);
-
-          if (fs.existsSync(fullLocalPath)) {
-            fs.unlinkSync(fullLocalPath);
-          }
-        }
-      } catch (fileErr) {
-        console.error("Gagal menghapus file gambar artikel:", fileErr);
+      if (dbErr) {
+        console.warn("Supabase delete blog error:", dbErr.message);
       }
     }
 
+    // 2. Hapus dari local cache
     blogs = blogs.filter((b) => b.id !== id);
-    saveBlogs(blogs);
+    await saveBlogs(blogs);
 
     return NextResponse.json({
       message: "Artikel dan gambarnya berhasil dihapus",
@@ -190,4 +216,3 @@ export async function DELETE(req: NextRequest) {
     );
   }
 }
-

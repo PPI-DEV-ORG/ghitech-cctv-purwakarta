@@ -8,7 +8,7 @@
     "category": "Keamanan & Tips",
     "author": "Tim Teknis CV. Ghina Multiprima",
     "date": "2026-09-15",
-    "image": "/imgs/places/warehouse.jpg",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/blogs/warehouse.jpg",
     "readTime": "5 min baca"
   },
   {
@@ -20,7 +20,7 @@
     "category": "Teknologi & VMS",
     "author": "Engineering Samtek",
     "date": "2026-09-10",
-    "image": "/imgs/places/bank.jpg",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/blogs/bank.jpg",
     "readTime": "6 min baca"
   },
   {
@@ -32,7 +32,7 @@
     "category": "Layanan & Maintenance",
     "author": "Field Operation Team",
     "date": "2026-09-02",
-    "image": "/imgs/places/pabrik.jpg",
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/blogs/pabrik.jpg",
     "readTime": "4 min baca"
   }
 ]

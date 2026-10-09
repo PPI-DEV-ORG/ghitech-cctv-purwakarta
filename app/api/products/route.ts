@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import { getProducts, saveProducts } from "@/app/lib/storage";
+import { getProducts, saveProducts, deleteStoredImage } from "@/app/lib/storage";
 import { ProductItem } from "@/app/components/ProductCard";
+import { supabase, isSupabaseConfigured } from "@/app/lib/supabase";
 
 function verifyPassword(req: NextRequest): boolean {
   const adminPass = process.env.BLOG_ADMIN_PASSWORD?.trim();
@@ -11,7 +10,7 @@ function verifyPassword(req: NextRequest): boolean {
 }
 
 export async function GET() {
-  const products = getProducts();
+  const products = await getProducts();
   return NextResponse.json(products);
 }
 
@@ -25,7 +24,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const products: ProductItem[] = getProducts();
+    const products: ProductItem[] = await getProducts();
 
     const priceNum =
       typeof body.priceNumber === "number"
@@ -57,8 +56,31 @@ export async function POST(req: NextRequest) {
       footerNote: body.footerNote || "Garansi Unit Resmi 1 Tahun",
     };
 
+    // 1. Simpan ke Supabase jika aktif
+    if (isSupabaseConfigured && supabase) {
+      const { error: dbErr } = await supabase.from("products").insert({
+        id: newProduct.id,
+        name: newProduct.name,
+        category: newProduct.category,
+        sub_category: newProduct.subCategory,
+        badge: newProduct.badge,
+        channels: newProduct.channels,
+        price: newProduct.price,
+        price_number: newProduct.priceNumber,
+        image: newProduct.image,
+        description: newProduct.description,
+        includes: newProduct.includes,
+        footer_note: newProduct.footerNote,
+      });
+
+      if (dbErr) {
+        console.warn("Supabase insert product error:", dbErr.message);
+      }
+    }
+
+    // 2. Simpan ke local cache
     products.unshift(newProduct);
-    saveProducts(products);
+    await saveProducts(products);
 
     return NextResponse.json(
       { message: "Produk berhasil ditambahkan", product: newProduct },
@@ -80,7 +102,7 @@ export async function PUT(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const products: ProductItem[] = getProducts();
+    const products: ProductItem[] = await getProducts();
 
     const index = products.findIndex((p) => p.id === body.id);
     if (index === -1) {
@@ -104,24 +126,9 @@ export async function PUT(req: NextRequest) {
     const oldProduct = products[index];
     const newImage = body.image;
 
-    // Hapus file gambar lama jika foto diganti dan foto lama tersimpan di public
+    // Hapus file gambar lama jika foto diganti
     if (oldProduct.image && newImage && oldProduct.image !== newImage) {
-      try {
-        const rawPath = oldProduct.image.trim().split("?")[0].split("#")[0];
-        const isBlogImage =
-          rawPath.startsWith("/imgs/blog/") ||
-          rawPath.startsWith("imgs/blog/");
-
-        if (isBlogImage) {
-          const cleanRelativePath = rawPath.replace(/^\/+/, "");
-          const fullLocalPath = path.join(process.cwd(), "public", cleanRelativePath);
-          if (fs.existsSync(fullLocalPath)) {
-            fs.unlinkSync(fullLocalPath);
-          }
-        }
-      } catch (fileErr) {
-        console.error("Gagal menghapus file gambar lama produk:", fileErr);
-      }
+      await deleteStoredImage(oldProduct.image);
     }
 
     products[index] = {
@@ -136,7 +143,32 @@ export async function PUT(req: NextRequest) {
         : products[index].includes,
     };
 
-    saveProducts(products);
+    // 1. Update ke Supabase jika aktif
+    if (isSupabaseConfigured && supabase) {
+      const { error: dbErr } = await supabase
+        .from("products")
+        .update({
+          name: products[index].name,
+          category: products[index].category,
+          sub_category: products[index].subCategory,
+          badge: products[index].badge,
+          channels: products[index].channels,
+          price: products[index].price,
+          price_number: products[index].priceNumber,
+          image: products[index].image,
+          description: products[index].description,
+          includes: products[index].includes,
+          footer_note: products[index].footerNote,
+        })
+        .eq("id", products[index].id);
+
+      if (dbErr) {
+        console.warn("Supabase update product error:", dbErr.message);
+      }
+    }
+
+    // 2. Simpan ke local cache
+    await saveProducts(products);
 
     return NextResponse.json({
       message: "Produk berhasil diperbarui",
@@ -167,7 +199,7 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
-    let products: ProductItem[] = getProducts();
+    let products: ProductItem[] = await getProducts();
     const prodToDelete = products.find((p) => p.id === id);
 
     if (!prodToDelete) {
@@ -177,28 +209,26 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
-    // Hapus file gambar produk jika tersimpan di public/imgs/blog/
+    // Hapus file gambar produk jika tersimpan
     if (prodToDelete.image) {
-      try {
-        const rawPath = prodToDelete.image.trim().split("?")[0].split("#")[0];
-        const isBlogImage =
-          rawPath.startsWith("/imgs/blog/") ||
-          rawPath.startsWith("imgs/blog/");
+      await deleteStoredImage(prodToDelete.image);
+    }
 
-        if (isBlogImage) {
-          const cleanRelativePath = rawPath.replace(/^\/+/, "");
-          const fullLocalPath = path.join(process.cwd(), "public", cleanRelativePath);
-          if (fs.existsSync(fullLocalPath)) {
-            fs.unlinkSync(fullLocalPath);
-          }
-        }
-      } catch (fileErr) {
-        console.error("Gagal menghapus file gambar produk:", fileErr);
+    // 1. Hapus dari Supabase jika aktif
+    if (isSupabaseConfigured && supabase) {
+      const { error: dbErr } = await supabase
+        .from("products")
+        .delete()
+        .eq("id", id);
+
+      if (dbErr) {
+        console.warn("Supabase delete product error:", dbErr.message);
       }
     }
 
+    // 2. Hapus dari local cache
     products = products.filter((p) => p.id !== id);
-    saveProducts(products);
+    await saveProducts(products);
 
     return NextResponse.json({
       message: "Produk berhasil dihapus",
@@ -208,4 +238,3 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ message }, { status: 500 });
   }
 }
-

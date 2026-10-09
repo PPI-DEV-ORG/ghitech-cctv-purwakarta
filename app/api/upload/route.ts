@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { supabase, isSupabaseConfigured, BUCKET_NAME } from "@/app/lib/supabase";
 
 function verifyPassword(req: NextRequest): boolean {
   const adminPass = process.env.BLOG_ADMIN_PASSWORD?.trim();
@@ -64,24 +65,48 @@ export async function POST(req: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Simpan ke direktori public/imgs/blog/
-    const blogDir = path.join(process.cwd(), "public", "imgs", "blog");
-    if (!fs.existsSync(blogDir)) {
-      fs.mkdirSync(blogDir, { recursive: true });
-    }
-
     const baseName = path
       .basename(file.name, ext)
       .toLowerCase()
       .replace(/[^a-z0-9]/g, "-")
       .slice(0, 40);
     const filename = `${baseName}-${Date.now()}${ext}`;
-    const filePath = path.join(blogDir, filename);
 
+    // 1. Jika Supabase dikonfigurasi, simpan ke Supabase Storage Bucket
+    if (isSupabaseConfigured && supabase) {
+      const storagePath = `uploads/${filename}`;
+      const { data: uploadData, error: uploadErr } = await supabase.storage
+        .from(BUCKET_NAME)
+        .upload(storagePath, buffer, {
+          contentType: mimeType,
+          upsert: false,
+        });
+
+      if (!uploadErr && uploadData) {
+        const { data: publicUrlData } = supabase.storage
+          .from(BUCKET_NAME)
+          .getPublicUrl(storagePath);
+
+        return NextResponse.json({
+          message: "Media berhasil diunggah ke Supabase Storage",
+          url: publicUrlData.publicUrl,
+        });
+      }
+
+      console.warn("Upload ke Supabase gagal, fallback ke lokal:", uploadErr?.message);
+    }
+
+    // 2. Fallback: simpan ke lokal public/imgs/blog/
+    const blogDir = path.join(process.cwd(), "public", "imgs", "blog");
+    if (!fs.existsSync(blogDir)) {
+      fs.mkdirSync(blogDir, { recursive: true });
+    }
+
+    const filePath = path.join(blogDir, filename);
     fs.writeFileSync(filePath, buffer);
 
     return NextResponse.json({
-      message: "Media berhasil diunggah",
+      message: "Media berhasil diunggah secara lokal",
       url: `/imgs/blog/${filename}`,
     });
   } catch (error: unknown) {
@@ -93,4 +118,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
