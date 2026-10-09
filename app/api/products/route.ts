@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import fs from "fs";
+import path from "path";
 import { getProducts, saveProducts } from "@/app/lib/storage";
 import { ProductItem } from "@/app/components/ProductCard";
 
@@ -99,6 +101,29 @@ export async function PUT(req: NextRequest) {
         ? `Rp ${priceNum.toLocaleString("id-ID")}`
         : "Hubungi Admin");
 
+    const oldProduct = products[index];
+    const newImage = body.image;
+
+    // Hapus file gambar lama jika foto diganti dan foto lama tersimpan di public
+    if (oldProduct.image && newImage && oldProduct.image !== newImage) {
+      try {
+        const rawPath = oldProduct.image.trim().split("?")[0].split("#")[0];
+        const isBlogImage =
+          rawPath.startsWith("/imgs/blog/") ||
+          rawPath.startsWith("imgs/blog/");
+
+        if (isBlogImage) {
+          const cleanRelativePath = rawPath.replace(/^\/+/, "");
+          const fullLocalPath = path.join(process.cwd(), "public", cleanRelativePath);
+          if (fs.existsSync(fullLocalPath)) {
+            fs.unlinkSync(fullLocalPath);
+          }
+        }
+      } catch (fileErr) {
+        console.error("Gagal menghapus file gambar lama produk:", fileErr);
+      }
+    }
+
     products[index] = {
       ...products[index],
       ...body,
@@ -143,13 +168,33 @@ export async function DELETE(req: NextRequest) {
     }
 
     let products: ProductItem[] = getProducts();
-    const exists = products.some((p) => p.id === id);
+    const prodToDelete = products.find((p) => p.id === id);
 
-    if (!exists) {
+    if (!prodToDelete) {
       return NextResponse.json(
         { message: "Produk tidak ditemukan" },
         { status: 404 }
       );
+    }
+
+    // Hapus file gambar produk jika tersimpan di public/imgs/blog/
+    if (prodToDelete.image) {
+      try {
+        const rawPath = prodToDelete.image.trim().split("?")[0].split("#")[0];
+        const isBlogImage =
+          rawPath.startsWith("/imgs/blog/") ||
+          rawPath.startsWith("imgs/blog/");
+
+        if (isBlogImage) {
+          const cleanRelativePath = rawPath.replace(/^\/+/, "");
+          const fullLocalPath = path.join(process.cwd(), "public", cleanRelativePath);
+          if (fs.existsSync(fullLocalPath)) {
+            fs.unlinkSync(fullLocalPath);
+          }
+        }
+      } catch (fileErr) {
+        console.error("Gagal menghapus file gambar produk:", fileErr);
+      }
     }
 
     products = products.filter((p) => p.id !== id);

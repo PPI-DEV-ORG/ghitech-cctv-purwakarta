@@ -53,9 +53,10 @@ export async function POST(req: NextRequest) {
       { message: "Artikel berhasil ditambahkan", post: newPost },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Gagal membuat artikel";
     return NextResponse.json(
-      { message: error.message || "Gagal membuat artikel" },
+      { message },
       { status: 500 }
     );
   }
@@ -81,6 +82,29 @@ export async function PUT(req: NextRequest) {
       );
     }
 
+    const oldPost = blogs[index];
+    const newImage = body.image;
+
+    // Hapus file gambar lama jika foto diganti dan foto lama tersimpan di public
+    if (oldPost.image && newImage && oldPost.image !== newImage) {
+      try {
+        const rawPath = oldPost.image.trim().split("?")[0].split("#")[0];
+        const isBlogImage =
+          rawPath.startsWith("/imgs/blog/") ||
+          rawPath.startsWith("imgs/blog/");
+
+        if (isBlogImage) {
+          const cleanRelativePath = rawPath.replace(/^\/+/, "");
+          const fullLocalPath = path.join(process.cwd(), "public", cleanRelativePath);
+          if (fs.existsSync(fullLocalPath)) {
+            fs.unlinkSync(fullLocalPath);
+          }
+        }
+      } catch (fileErr) {
+        console.error("Gagal menghapus file gambar lama artikel:", fileErr);
+      }
+    }
+
     blogs[index] = {
       ...blogs[index],
       ...body,
@@ -92,9 +116,10 @@ export async function PUT(req: NextRequest) {
       message: "Artikel berhasil diperbarui",
       post: blogs[index],
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Gagal memperbarui artikel";
     return NextResponse.json(
-      { message: error.message || "Gagal memperbarui artikel" },
+      { message },
       { status: 500 }
     );
   }
@@ -132,7 +157,7 @@ export async function DELETE(req: NextRequest) {
     // Hapus file media/gambar jika tersimpan di public folder
     if (postToDelete.image) {
       try {
-        let rawPath = postToDelete.image.trim().split("?")[0].split("#")[0];
+        const rawPath = postToDelete.image.trim().split("?")[0].split("#")[0];
 
         const isBlogImage =
           rawPath.startsWith("/imgs/blog/") ||
@@ -157,9 +182,10 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({
       message: "Artikel dan gambarnya berhasil dihapus",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Gagal menghapus artikel";
     return NextResponse.json(
-      { message: error.message || "Gagal menghapus artikel" },
+      { message },
       { status: 500 }
     );
   }

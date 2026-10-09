@@ -19,9 +19,10 @@ export async function POST(req: NextRequest) {
       { success: false, message: "Password admin tidak cocok." },
       { status: 401 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Terjadi kesalahan";
     return NextResponse.json(
-      { success: false, message: error.message || "Terjadi kesalahan" },
+      { success: false, message },
       { status: 500 }
     );
   }

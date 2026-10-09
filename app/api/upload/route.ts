@@ -84,10 +84,11 @@ export async function POST(req: NextRequest) {
       message: "Media berhasil diunggah",
       url: `/imgs/blog/${filename}`,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Upload error:", error);
+    const message = error instanceof Error ? error.message : "Gagal mengunggah file";
     return NextResponse.json(
-      { message: error.message || "Gagal mengunggah file" },
+      { message },
       { status: 500 }
     );
   }
