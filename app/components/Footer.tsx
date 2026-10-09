@@ -107,13 +107,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-2 border-t border-border pt-6 sm:flex-row sm:flex-wrap sm:justify-between sm:gap-2.5 text-xs text-muted">
           <span>&copy; {new Date().getFullYear()} G-Tech CCTV Purwakarta. All rights reserved.</span>
-          <div className="flex items-center gap-3 text-gray-400">
-            <span>Unit Retail Resmi CV. Ghina Multiprima</span>
-            <span>•</span>
-            <Link href="/admin/produk" className="hover:text-amber text-gray-400 transition-colors">
-              Admin
-            </Link>
-          </div>
+          <span className="text-gray-400">Unit Retail Resmi CV. Ghina Multiprima</span>
         </div>
       </div>
     </footer>
