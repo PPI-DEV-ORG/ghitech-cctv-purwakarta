@@ -1,0 +1,192 @@
+[
+  {
+    "id": "prod-ho-4ch",
+    "name": "Paket CCTV Home Office 4 Channel Full HD",
+    "category": "office",
+    "subCategory": "home_office",
+    "badge": "Terpopuler Ruko",
+    "channels": "4 Channel",
+    "price": "Rp 3.850.000",
+    "priceNumber": 3850000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/home-office---4-channel.webp",
+    "description": "Paket ideal untuk ruko 2-3 lantai, studio kantor, cafe, dan tempat usaha kecil. Mengamankan ruang kerja, kasir, dan area depan.",
+    "includes": [
+      "4 Unit Kamera Kombinasi Indoor Dome & Outdoor Bullet Weatherproof",
+      "1 Unit NVR / DVR 4-Channel H.265+ High Compression",
+      "1 Unit Harddisk Surveillance 1TB WD Purple / Seagate SkyHawk",
+      "Power Supply Sentral & Aksesoris Konektor Lengkap",
+      "Kabel Instalasi hingga 50 Meter",
+      "Jasa Pemasangan Profesional & Setting Online ke Smartphone",
+      "Garansi Resmi Unit & Sparepart 1 Tahun"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-ho-8ch",
+    "name": "Paket CCTV Home Office 8 Channel High-End",
+    "category": "office",
+    "subCategory": "home_office",
+    "badge": "Cakupan Lengkap",
+    "channels": "8 Channel",
+    "price": "Rp 6.450.000",
+    "priceNumber": 6450000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/home-office---8-channels.webp",
+    "description": "Cakupan pengawasan lebih luas untuk ruko bertingkat atau kantor menengah dengan area parkir, ruang staf, dan gudang persediaan.",
+    "includes": [
+      "8 Unit Kamera CCTV Resolusi Tinggi (Indoor Dome & Outdoor IP67)",
+      "1 Unit NVR 8-Channel PoE dengan Port Jaringan Dedicated",
+      "1 Unit Harddisk Surveillance 2TB Penyimpanan Panjang",
+      "Power Supply Box & Proteksi Fuse Lonjakan Listrik",
+      "Kabel UTP / Coaxial Berkualitas hingga 100 Meter",
+      "Instalasi Ketinggian Standar & Konfigurasi Remote View",
+      "Garansi Resmi 1 Tahun Penuh"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-sec-4ch",
+    "name": "Paket CCTV Security Office 4 Channel Heavy-Duty",
+    "category": "office",
+    "subCategory": "security_office",
+    "badge": "Standar Korporat",
+    "channels": "4 Channel",
+    "price": "Rp 4.650.000",
+    "priceNumber": 4650000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/office-security---4-channels.webp",
+    "description": "Sistem proteksi perimeter keamanan kantor dengan kamera IP metal casing tahan vandalisme, rekaman ultra jernih, dan audio recording.",
+    "includes": [
+      "4 Unit Kamera IP Metal Housing Outdoor/Indoor Vandalproof",
+      "1 Unit NVR 4-Channel PoE 4K Ultra Encoding",
+      "1 Unit Harddisk Surveillance 2TB Enterprise Grade",
+      "Kabel UTP CAT6 Outdoor/Indoor hingga 60 Meter",
+      "Pemasangan Conduit Pelindung Kabel Standar Industri",
+      "Setup Akses Mobile Cloud & Notifikasi Deteksi Intrusi",
+      "Garansi Resmi Unit 1 Tahun & Support Teknisi"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-sec-8ch",
+    "name": "Paket CCTV Security Office 8 Channel Enterprise",
+    "category": "office",
+    "subCategory": "security_office",
+    "badge": "Enterprise Grade",
+    "channels": "8 Channel",
+    "price": "Rp 7.950.000",
+    "priceNumber": 7950000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/office-security---8-channels.webp",
+    "description": "Solusi terpadu gedung perkantoran, perbankan, dan area komersial bertingkat dengan integrasi ruang kontrol keamanan (command center).",
+    "includes": [
+      "8 Unit Kamera CCTV IP Resolusi 4MP/4K Ultra Clarity",
+      "1 Unit NVR 8-Channel PoE 4K High Throughput",
+      "1 Unit Harddisk Surveillance 4TB (Retensi Aman 24/7)",
+      "PoE Switch Gigabit Industrial & Rak Panel Pelindung",
+      "Kabel Jaringan UTP CAT6 Berkualitas hingga 120 Meter",
+      "Instalasi Jalur Kabel Rapi, Labeling, & Uji Konektivitas",
+      "Full Training Tim Security Internal & Garansi 1 Tahun"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-babycam-1",
+    "name": "Paket Smart Baby Cam 1 Kamera PTZ 360°",
+    "category": "babycam",
+    "badge": "Praktis & Instan",
+    "channels": "1 Kamera Wireless",
+    "price": "Rp 650.000",
+    "priceNumber": 650000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/1-baby-cam.webp",
+    "description": "Kamera pintar praktis tanpa instalasi kabel rumit, audio 2 arah, auto tracking gerakan, dan pantau via smartphone kapan saja.",
+    "includes": [
+      "1 Unit Kamera Smart Wireless Pan-Tilt 360° Full HD",
+      "Audio 2 Arah (Mikrofon & Speaker Terintegrasi)",
+      "Smart Auto Human Motion Tracking & Night Vision",
+      "Slot MicroSD hingga 128GB + Cloud Storage Ready",
+      "Adaptor Daya & Braket Pemasangan Fleksibel",
+      "Setup Aplikasi Mobile iOS & Android Gratis",
+      "Garansi Resmi Unit 1 Tahun"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-babycam-4",
+    "name": "Paket Smart Baby Cam 4 Kamera Wireless Multi-Room",
+    "category": "babycam",
+    "badge": "Terpopuler Rumah",
+    "channels": "4 Kamera Wireless",
+    "price": "Rp 2.350.000",
+    "priceNumber": 2350000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/4-baby-cam.webp",
+    "description": "Paket pengawasan lengkap untuk seluruh area hunian (kamar anak, ruang tamu, dapur, dan teras) dengan tampilan 4 split-screen real-time.",
+    "includes": [
+      "4 Unit Kamera Smart Wireless Pan-Tilt 360° 1080p/2K",
+      "4 Unit Power Adaptor & Aksesoris Bracket Dinding/Plafon",
+      "Tampilan 4 Kamera Sekaligus pada Layar HP / Tablet",
+      "Fitur Sirene Alarm & Lampu Strobo Deteksi Penyusup",
+      "Konfigurasi Jaringan WiFi Stabil & Testing Jarak Jauh",
+      "Garansi Resmi 1 Tahun Penuh"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-babycam-6",
+    "name": "Paket Smart Baby Cam 6 Kamera Wireless Extended",
+    "category": "babycam",
+    "badge": "Hunian Bertingkat",
+    "channels": "6 Kamera Wireless",
+    "price": "Rp 3.450.000",
+    "priceNumber": 3450000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/6-baby-cam.webp",
+    "description": "Cakupan luas tanpa kabel untuk rumah 2 lantai, villa, atau daycare. Pantau setiap lantai dan ruangan aktif secara sinkron.",
+    "includes": [
+      "6 Unit Kamera Smart Wireless Pan-Tilt 360° Smart AI",
+      "6 Unit Power Adaptor & Perlengkapan Mounting",
+      "Multi-Stream Mobile View & Audio Dua Arah Interaktif",
+      "Smart Motion & Sound Detection (Tangisan Bayi / Suara Kaca)",
+      "Bantuan Pengaturan dan Training Penggunaan di Lokasi",
+      "Garansi Resmi 1 Tahun Penuh"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-babycam-8",
+    "name": "Paket Smart Baby Cam 8 Kamera Full-Coverage Ecosystem",
+    "category": "babycam",
+    "badge": "Daycare & Preschool",
+    "channels": "8 Kamera Wireless",
+    "price": "Rp 4.500.000",
+    "priceNumber": 4500000,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/8-baby-cam.webp",
+    "description": "Pengawasan menyeluruh untuk rumah bertingkat luas, tempat penitipan anak (daycare), sekolah TK, atau klinik dengan 8 kamera pintar wireless.",
+    "includes": [
+      "8 Unit Kamera Smart Wireless Pan-Tilt Full HD Night Color",
+      "8 Unit Adaptor & Perlengkapan Mounting Plafon",
+      "Monitoring Multi-User Terpusat (Bisa diakses guru/orang tua)",
+      "Penyimpanan Fleksibel (SD Card per unit / NVR Wireless Ready)",
+      "Bantuan Pengaturan dan Training Lengkap di Lokasi",
+      "Garansi Resmi 1 Tahun Penuh"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  },
+  {
+    "id": "prod-smartbox-edge",
+    "name": "SAMTEK AI Smartbox Edge Appliance",
+    "category": "smartbox",
+    "badge": "Produk Unggulan AI",
+    "channels": "Hingga 16 Stream AI",
+    "price": "Hubungi Sales",
+    "priceNumber": 0,
+    "image": "https://crpecokdoxcuycqdgrbs.supabase.co/storage/v1/object/public/gtech-assets/products/smartbox.png",
+    "description": "Perangkat komputasi edge berkinerja tinggi yang disematkan SAMTEK VMS untuk mengubah kamera CCTV kantor konvensional menjadi AI Camera pintar.",
+    "includes": [
+      "Hardware Edge AI Embedded Processor Fanless Rugged",
+      "Pre-installed SAMTEK VMS Software & License",
+      "Analitik AI: Deteksi Objek, Wajah, Plat Nomor, Perimeter Defense",
+      "Dashboard Pemantauan Sentral Real-Time",
+      "Kompatibel dengan Protokol ONVIF & RTSP Aneka Brand",
+      "Konsumsi Daya Rendah (<30 Watt) & Operasional 24/7",
+      "Full Training dan Integrasi On-Site oleh Tim Engineer"
+    ],
+    "footerNote": "Sudah Termasuk Jasa Training Penggunaan dan Akomodasi Teknisi"
+  }
+]
