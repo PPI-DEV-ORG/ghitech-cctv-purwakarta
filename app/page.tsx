@@ -408,29 +408,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* 7. AREA LAYANAN (Dengan Grafik Peta Radar) */}
-      <section id="cakupan" className="border-t border-border bg-slate-50/70 py-16 sm:py-20">
-        <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
-          <div className="mb-10 text-center max-w-2xl mx-auto">
-            <div className="mb-2 font-mono text-xs font-bold uppercase tracking-wider text-amber">
-              AREA LAYANAN CEPAT
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-ink tracking-tight">
-              Melayani Pemasangan di Purwakarta &amp; Sekitarnya
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm text-muted">
-              Tim instalasi berbasis di Purwakarta dan rutin menjangkau kawasan industri, perkantoran, dan permukiman di Jawa Barat.
-            </p>
-          </div>
-
-          {/* Grafik Radar Map */}
-          <div className="max-w-[900px] mx-auto">
-            <ServiceAreaMap />
-          </div>
-        </div>
-      </section>
-
+      
       {/* 8. CONTACT & CTA SECTION */}
       <section id="kontak" className="border-t border-border bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
